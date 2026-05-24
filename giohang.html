@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Giỏ Hàng - PC SHOP</title>
+
+    <link rel="stylesheet" href="css/giohang.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="top-header">
+
+            <h1>PC SHOP</h1>
+
+            <nav>
+
+                <a href="index.html">Trang chủ</a>
+
+                <a href="sanpham.html">Sản phẩm</a>
+
+                <a href="khuyenmai.html">Khuyến mãi</a>
+
+                <a href="tintuc.html">Tin tức</a>
+
+                <a href="lienhe.html">Liên hệ</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- TITLE -->
+    <section class="cart-title">
+
+        <h2>GIỎ HÀNG CỦA BẠN</h2>
+
+        <p>
+
+            Danh sách sản phẩm đã thêm vào giỏ hàng
+
+        </p>
+
+    </section>
+
+    <!-- CART -->
+    <section class="cart-container">
+
+        <div id="cart-list">
+
+        </div>
+
+    </section>
+
+    <!-- TOTAL -->
+    <section class="total-box">
+
+        <h3 id="tamTinh">
+
+            Tạm tính: 0đ
+
+        </h3>
+
+        <h3 id="voucher">
+
+            Voucher: 0đ
+
+        </h3>
+
+        <h2 id="tongTien">
+
+            Tổng tiền: 0đ
+
+        </h2>
+
+        <button onclick="moThanhToan()">
+
+            THANH TOÁN
+
+        </button>
+
+    </section>
+
+    <!-- PAYMENT -->
+    <div id="payment-box">
+
+        <div class="payment-content">
+
+            <h2>THÔNG TIN THANH TOÁN</h2>
+
+            <input type="text" id="hoten" placeholder="Họ và tên">
+
+            <input type="text" id="sdt" placeholder="Số điện thoại">
+
+            <input type="text" id="diachi" placeholder="Địa chỉ giao hàng">
+
+            <select id="bank">
+
+                <option value="">Chọn ngân hàng</option>
+
+                <option>Vietcombank</option>
+
+                <option>MB Bank</option>
+
+                <option>Techcombank</option>
+
+                <option>BIDV</option>
+
+                <option>ACB</option>
+
+            </select>
+
+            <input type="text" id="stk" placeholder="Số tài khoản ngân hàng">
+            <img src="images/anh-QR.png" class="qr-image">
+
+            <p class="qr-text">
+
+            Quét mã QR để thanh toán 😎
+
+            </p>
+
+            <button onclick="xacNhanThanhToan()">
+
+                XÁC NHẬN THANH TOÁN
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- SUCCESS -->
+    <div id="success-popup">
+
+        ✔ THANH TOÁN THÀNH CÔNG 😎
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+
+            PC SHOP © 2026
+
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+
+        let cartList = document.getElementById("cart-list");
+
+        let tong = 0;
+
+        gioHang.forEach(function(sp){
+
+            tong += parseInt(
+
+                sp.gia.replace(/\./g,'')
+
+                      .replace('đ','')
+
+            );
+
+            cartList.innerHTML += `
+
+        <div class="cart-item">
+
+        <img src="${sp.hinh}">
+
+        <div class="cart-info">
+
+            <h3>${sp.ten}</h3>
+
+            <p>${sp.gia}</p>
+
+        </div>
+
+        <button onclick="xoaSanPham('${sp.ten}')">
+
+            XÓA
+
+        </button>
+
+        </div>
+
+`;
+
+        });
+
+        /* VOUCHER */
+        let voucher = localStorage.getItem("voucher");
+
+        let giamGia = 0;
+
+        if(voucher == "500k"){
+
+            giamGia = 500000;
+
+        }
+
+        let tongSauGiam = tong - giamGia;
+
+        if(tongSauGiam < 0){
+
+            tongSauGiam = 0;
+
+        }
+
+        /* HIỂN THỊ TIỀN */
+        document.getElementById("tamTinh").innerHTML =
+
+        "Tạm tính: " + tong.toLocaleString('vi-VN') + "đ";
+
+        document.getElementById("voucher").innerHTML =
+
+        "Voucher: -" + giamGia.toLocaleString('vi-VN') + "đ";
+
+        document.getElementById("tongTien").innerHTML =
+
+        "Tổng tiền: " + tongSauGiam.toLocaleString('vi-VN') + "đ";
+
+        /* XÓA SẢN PHẨM */
+        function xoaSanPham(ten){
+
+            let gioHang = JSON.parse(localStorage.getItem("gioHang")) || [];
+
+            gioHang = gioHang.filter(function(sp){
+
+                return sp.ten !== ten;
+
+            });
+
+            localStorage.setItem("gioHang", JSON.stringify(gioHang));
+
+            location.reload();
+
+        }
+
+        /* MỞ THANH TOÁN */
+        function moThanhToan(){
+
+            if(gioHang.length == 0){
+
+                alert("Giỏ hàng đang trống");
+
+            }
+
+            else{
+
+                document.getElementById("payment-box").style.display = "flex";
+
+            }
+
+        }
+
+        /* THANH TOÁN */
+        function xacNhanThanhToan(){
+
+            let hoten = document.getElementById("hoten").value;
+
+            let sdt = document.getElementById("sdt").value;
+
+            let diachi = document.getElementById("diachi").value;
+
+            let bank = document.getElementById("bank").value;
+
+            let stk = document.getElementById("stk").value;
+
+            if(hoten == "" || sdt == "" || diachi == "" || bank == "" || stk == ""){
+
+                alert("Vui lòng nhập đầy đủ thông tin");
+
+            }
+
+            else{
+
+                let popup = document.getElementById("success-popup");
+
+                popup.classList.add("show");
+
+                setTimeout(function(){
+
+                    popup.classList.remove("show");
+
+                    localStorage.removeItem("gioHang");
+
+                    localStorage.removeItem("voucher");
+
+                    window.location.href = "index.html";
+
+                },2000);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Khuyến mãi - PC SHOP</title>
+
+    <link rel="stylesheet" href="css/khuyenmai.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="top-header">
+
+            <h1>PC SHOP</h1>
+
+            <nav>
+
+                <a href="index.html">Trang chủ</a>
+
+                <a href="sanpham.html">Sản phẩm</a>
+
+                <a href="khuyenmai.html" class="active">Khuyến mãi</a>
+
+                <a href="tintuc.html">Tin tức</a>
+
+                <a href="lienhe.html">Liên hệ</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- SALE BANNER -->
+    <section class="sale-banner">
+
+        <img src="images/banner3.png">
+
+        <div class="banner-text">
+
+            <h2>MEGA SALE GAMING</h2>
+
+            <p>Giảm giá cực mạnh cho toàn bộ PC Gaming</p>
+
+            <button onclick="themGioHang('PC Gaming Sale','15.990.000đ','images/banner3.png')">
+
+            MUA NGAY
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- TITLE -->
+    <section class="page-title">
+
+        <h2>KHUYẾN MÃI HOT</h2>
+
+        <p>
+            Ưu đãi hấp dẫn dành cho game thủ trong tháng này
+        </p>
+
+    </section>
+
+    <!-- SALE PRODUCTS -->
+    <section class="sale-products">
+
+        <!-- CARD 1 -->
+        <div class="sale-card">
+
+            <img src="images/sales1.png">
+
+            <div class="sale-content">
+
+                <h3>PC Gaming RTX</h3>
+
+                <p>
+                    Hiệu năng mạnh mẽ cho mọi tựa game AAA
+                </p>
+
+                <h4>Giảm 25%</h4>
+
+                <a href="khuyenmai1.html" class="btn">
+
+                 XEM NGAY
+
+                </a>
+                <button onclick="themGioHang('PC Gaming RTX','19.990.000đ','images/sales1.png')">
+
+                 MUA NGAY
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="sale-card">
+
+            <img src="images/sales2.png">
+
+            <div class="sale-content">
+
+                <h3>Gaming Setup RGB</h3>
+
+                <p>
+                    Combo cực đẹp cho góc gaming hiện đại
+                </p>
+
+                <h4>Giảm 30%</h4>
+
+                <a href="khuyenmai2.html">
+
+                <button>XEM NGAY</button>
+
+                </a>
+
+                <button onclick="themGioHang('Gaming Setup RGB','27.990.000đ','images/sales2.png')">
+
+                MUA NGAY
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="sale-card">
+
+            <img src="images/sales3.png">
+
+            <div class="sale-content">
+
+                <h3>PC Gaming Ultra</h3>
+
+                <p>
+                    Build PC cao cấp cho streamer và designer
+                </p>
+
+                <h4>Giảm 15%</h4>
+
+                <a href="khuyenmai3.html">
+
+                <button>XEM NGAY</button>
+
+                </a>
+
+                <button onclick="themGioHang('PC Gaming Ultra','39.990.000đ','images/sales3.png')">
+
+                MUA NGAY
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- VOUCHER -->
+    <section class="voucher">
+
+        <div class="voucher-box">
+
+            <img src="images/votcher.png">
+
+            <div class="voucher-text">
+
+                <h2>NHẬN NGAY VOUCHER 500K</h2>
+
+                <p>
+                    Áp dụng cho đơn hàng từ 20 triệu đồng
+                </p>
+
+                 <a href="khuyenmai4.html">
+
+                <button>NHẬN NGAY</button>
+
+                </a>
+                <button onclick="nhanVoucher()">
+
+                NHẬN VOUCHER 500K
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>PC SHOP © 2026</p>
+
+    </footer>
+
+    <div id="popup">
+
+        Đã thêm vào giỏ hàng
+
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>PC SHOP</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <!-- LOGO -->
+        <div class="logo">
+
+            PC SHOP
+
+        </div>
+
+        <!-- MENU -->
+        <div class="menu">
+
+            <a href="index.html" class="active">Trang chủ</a>
+
+            <a href="sanpham.html">Sản phẩm</a>
+
+            <a href="khuyenmai.html">Khuyến mãi</a>
+
+            <a href="tintuc.html">Tin tức</a>
+
+            <a href="lienhe.html">Liên hệ</a>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="header-right">
+
+            <!-- SEARCH -->
+            <div class="search">
+
+            <input type="text" 
+            id="searchInput" 
+            placeholder="Tìm kiếm sản phẩm..."
+            onkeypress="nhanEnter(event)">
+
+            <button onclick="timKiem()">🔍</button>
+
+        </div>
+
+            <!-- CART -->
+        <a href="giohang.html" class="cart">
+
+            🛒 <span id="cart-count">0</span>
+
+        </a>
+
+        </div>
+
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner">
+
+        <img src="images/banner.png">
+
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+
+        <h2>PC Gaming Hiệu Năng Cao Cho Game Thủ</h2>
+
+        <p>
+
+            Chuyên cung cấp PC Gaming, laptop gaming và linh kiện chính hãng
+            với hiệu năng mạnh mẽ, giá tốt và chế độ bảo hành uy tín.
+
+        </p>
+
+    </div>
+
+    <!-- CATEGORY -->
+    <div class="category">
+
+        <div class="item">
+
+            <img src="images/icon-case.png">
+
+            <p>PC Gaming</p>
+
+        </div>
+
+        <div class="item">
+
+            <img src="images/icon-laptop.png">
+
+            <p>Laptop</p>
+
+        </div>
+
+        <div class="item">
+
+            <img src="images/icon-vega.png">
+
+            <p>VGA</p>
+
+        </div>
+
+        <div class="item">
+
+            <img src="images/icon-cpu.png">
+
+            <p>CPU</p>
+
+        </div>
+
+        <div class="item">
+
+            <img src="images/icon-ssd.png">
+
+            <p>SSD</p>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUCT TITLE -->
+    <div class="title">
+
+        <h2>SẢN PHẨM NỔI BẬT</h2>
+
+    </div>
+
+    <!-- PRODUCT -->
+    <div class="product">
+
+        <!-- CARD 1 -->
+        <div class="card">
+
+            <img src="images/pc1.png">
+
+            <h3>PC Gaming RTX</h3>
+
+            <p>
+
+                Cấu hình mạnh mẽ chiến mượt mọi tựa game phổ biến hiện nay.
+
+            </p>
+
+            <p class="price">
+
+                19.990.000đ
+
+            </p>
+
+            <button onclick="themGioHang('PC Gaming RTX','19.990.000đ','images/pc1.png')">
+
+                MUA NGAY
+
+            </button>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+
+            <img src="images/pc2.jpg">
+
+            <h3>PC Gaming RGB</h3>
+
+            <p>
+
+                Hệ thống tản nhiệt tối ưu cùng dàn LED RGB cực đẹp.
+
+            </p>
+
+            <p class="price">
+
+                24.990.000đ
+
+            </p>
+
+            <button onclick="themGioHang('PC Gaming RGB','24.990.000đ','images/pc2.jpg')">
+
+                MUA NGAY
+
+            </button>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+
+            <img src="images/pc3.jpg">
+
+            <h3>PC Gaming Ultra</h3>
+
+            <p>
+
+                Hiệu năng cao dành cho streamer và game thủ chuyên nghiệp.
+
+            </p>
+
+            <p class="price">
+
+                29.990.000đ
+
+            </p>
+
+            <button onclick="themGioHang('PC Gaming Ultra','29.990.000đ','images/pc3.jpg')">
+
+                MUA NGAY
+
+            </button>
+
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+
+            <img src="images/pc4.jpg">
+
+            <h3>PC Gaming Pro</h3>
+
+            <p>
+
+                Chiến mọi tựa game AAA với FPS ổn định và đồ họa cực cao.
+
+            </p>
+
+            <p class="price">
+
+                35.990.000đ
+
+            </p>
+
+            <button onclick="themGioHang('PC Gaming Pro','35.990.000đ','images/pc4.jpg')">
+
+                MUA NGAY
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- NEWS TITLE -->
+    <div class="title">
+
+        <h2>TIN TỨC - KHUYẾN MÃI</h2>
+
+    </div>
+
+    <!-- NEWS -->
+    <div class="news">
+
+        <!-- NEWS 1 -->
+        <div class="news-card">
+
+            <img src="images/news1.png">
+
+            <h3>Ưu đãi giảm giá</h3>
+
+            <p>
+
+                Giảm giá lên đến 30% cho nhiều dòng PC Gaming cao cấp.
+
+            </p>
+
+        </div>
+
+        <!-- NEWS 2 -->
+        <div class="news-card">
+
+            <img src="images/news2.png">
+
+            <h3>RTX 5090 ra mắt</h3>
+
+            <p>
+
+                Nvidia công bố dòng VGA thế hệ mới với hiệu năng vượt trội.
+
+            </p>
+
+        </div>
+
+        <!-- NEWS 3 -->
+        <div class="news-card">
+
+            <img src="images/news3.png">
+
+            <h3>Gaming setup cực đẹp</h3>
+
+            <p>
+
+                Tham khảo các góc gaming RGB hiện đại dành cho game thủ.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- FEATURE -->
+    <div class="feature">
+
+        <div class="feature-item">
+
+            <img src="images/icon-baohanh.png">
+
+            <p>Bảo hành chính hãng</p>
+
+        </div>
+
+        <div class="feature-item">
+
+            <img src="images/icon-vanchuyen.png">
+
+            <p>Giao hàng toàn quốc</p>
+
+        </div>
+
+        <div class="feature-item">
+
+            <img src="images/icon-doitra.png">
+
+            <p>Đổi trả 7 ngày</p>
+
+        </div>
+
+        <div class="feature-item">
+
+            <img src="images/icon-hotro.png">
+
+            <p>Hỗ trợ 24/7</p>
+
+        </div>
+
+    </div>
+
+    <!-- ABOUT -->
+    <div class="about-shop">
+
+        <h2>Về PC SHOP</h2>
+
+        <p>
+
+            PC SHOP là cửa hàng chuyên cung cấp PC Gaming,
+            laptop gaming và linh kiện máy tính chất lượng cao
+            dành cho game thủ và dân công nghệ.
+
+        </p>
+
+        <p>
+
+            Chúng tôi cam kết mang đến sản phẩm chính hãng,
+            hỗ trợ tận tình và giá thành cạnh tranh nhất thị trường.
+
+        </p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <p>
+
+            PC SHOP © 2026
+
+        </p>
+
+    </div>
+
+    <!-- POPUP -->
+    <div id="popup">
+
+        ✔ Đã thêm sản phẩm vào giỏ hàng 😎
+
+    </div>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
