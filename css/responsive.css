@@ -1,0 +1,47 @@
+@media(max-width:768px){
+
+    .top-header{
+        width:95%;
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .sale-products,
+    .products,
+    .trend-container,
+    .gear-container,
+    .setup-container,
+    .ai-container,
+    .laptop-container,
+    .related-container{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .sale-card,
+    .product-card,
+    .trend-card,
+    .gear-card,
+    .setup-card,
+    .ai-card,
+    .laptop-card,
+    .related-card{
+        width:95%;
+    }
+
+    .banner,
+    .news-banner,
+    .article,
+    .description,
+    .features,
+    .voucher-box{
+        width:95%;
+    }
+
+}
